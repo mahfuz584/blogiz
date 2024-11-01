@@ -1,9 +1,14 @@
+import { TBlogData } from "@/types/blogsType";
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { AiFillLike } from "react-icons/ai";
 import { FaCalendar } from "react-icons/fa";
 
-const LatestBlogCard = ({ blog }) => {
+type TSingleBlog = {
+  blog: TBlogData;
+};
+const LatestBlogCard: React.FC<TSingleBlog> = ({ blog }) => {
   return (
     <div key={blog.id} className="card w-full bg-base-100 shadow-xl">
       <figure>
@@ -12,7 +17,7 @@ const LatestBlogCard = ({ blog }) => {
           width={600}
           height={100}
           alt="blog image"
-          className="rounded-xl h-96"
+          className="rounded-xl h-96 object-cover"
         />
       </figure>
       <div className="card-body">
@@ -33,7 +38,7 @@ const LatestBlogCard = ({ blog }) => {
           <div className="avatar items-center">
             <div className="w-8 mr-1 rounded-full">
               <Image
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                src="https://media.istockphoto.com/id/1478316046/photo/portrait-of-high-school-teacher-at-school-library.jpg?s=1024x1024&w=is&k=20&c=ESl6X7vThYCIC8hWOQz2Gndzhp3MQIx7zy-iq5LSC48="
                 width={100}
                 height={100}
                 alt="author image"
